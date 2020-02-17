@@ -3,8 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.tenable</groupId>
-  <artifactId>tenable-io-thin</artifactId>
-  <version>1.4.1-SNAPSHOT</version>
+  <artifactId>tenable-io-thin-sdk</artifactId>
+  <version>1.4.1</version>
   <inceptionYear>2017</inceptionYear>
   <licenses>
     <license>
@@ -16,13 +16,13 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>11</java.version>
+    <java.version>8</java.version>
     <java.unsupported.version>12</java.unsupported.version>
     <maven.version>3.6</maven.version>
 
     <httpmime.version>4.5.10</httpmime.version>
     <httpasyncclient.version>4.1.4</httpasyncclient.version>
-    <jackson.version>2.10.1</jackson.version>
+    <jackson.version>[2.0.0,)</jackson.version>
     <junit.version>4.12</junit.version>
     <lombok.version>1.18.10</lombok.version>
     <slf4j.version>1.7.29</slf4j.version>
