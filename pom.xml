@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.tenable</groupId>
-  <artifactId>tenable-io</artifactId>
+  <artifactId>tenable-io-thin</artifactId>
   <version>1.4.1</version>
   <inceptionYear>2017</inceptionYear>
   <licenses>
@@ -85,6 +85,18 @@
   <build>
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.2.0</version>
+          <configuration>
+            <archive>
+              <manifestEntries>
+                <repository>https://github.com/firemondev/Tenable.io-SDK-thin</repository>
+              </manifestEntries>
+            </archive>
+          </configuration>
+        </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
