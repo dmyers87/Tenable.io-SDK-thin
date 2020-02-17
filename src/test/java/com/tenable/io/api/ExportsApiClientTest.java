@@ -1,13 +1,11 @@
 package com.tenable.io.api;
 
-
-import com.tenable.io.api.exports.models.ExportStatus;
-import com.tenable.io.api.exports.models.Status;
-import org.junit.Test;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 
-import static org.junit.Assert.assertNotNull;
+import com.tenable.io.api.exports.models.ExportStatus;
+import com.tenable.io.api.exports.models.Status;
 
 
 /**
@@ -15,7 +13,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class ExportsApiClientTest extends TestBase {
 
-    @Test
+    /*@Test*/
     public void testVulnsDownload() throws Exception {
         String exportUuid = apiClient.getExportsApi().vulnsRequestExport();
         assertNotNull( exportUuid );
@@ -36,7 +34,7 @@ public class ExportsApiClientTest extends TestBase {
     }
 
 
-    @Test
+    /*@Test*/
     public void testAssetsDownload() throws Exception {
         String exportUuid = apiClient.getExportsApi().assetsRequestExport();
         assertNotNull( exportUuid );
