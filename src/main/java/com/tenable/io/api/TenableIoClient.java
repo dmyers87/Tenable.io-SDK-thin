@@ -5,6 +5,7 @@ import com.tenable.io.api.exports.ExportsApi;
 import com.tenable.io.api.plugins.PluginsApi;
 import com.tenable.io.api.scans.ScanHelper;
 import com.tenable.io.api.scans.ScansApi;
+import com.tenable.io.api.session.SessionApi;
 import com.tenable.io.core.services.AsyncHttpService;
 import com.tenable.io.core.utilities.ApiParametersHelper;
 
@@ -26,6 +27,7 @@ public class TenableIoClient implements AutoCloseable {
     private ExclusionsApi exclusionsApi = null;
     private ScanHelper scanHelper = null;
     private ExportsApi exportsApi = null;
+    private SessionApi sessionApi = null;
 
     /**
      * Instantiates a new Tenable IO client from environment variables.
@@ -179,6 +181,18 @@ public class TenableIoClient implements AutoCloseable {
             exportsApi = new ExportsApi( asyncHttpService, getTenableIoScheme(), getTenableIoHost() );
 
         return exportsApi;
+    }
+
+    /**
+     * Gets session api.
+     *
+     * @return the session api
+     */
+    synchronized public SessionApi getSessionApi() {
+        if( sessionApi == null )
+            sessionApi = new SessionApi( asyncHttpService, getTenableIoScheme(), getTenableIoHost() );
+
+        return sessionApi;
     }
 
 

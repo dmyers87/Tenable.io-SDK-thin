@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 /**
@@ -15,7 +13,6 @@ public class ScanDetails {
     private ScanDetailsInfo info;
     private List<ScanHost> hosts;
     private List<ScanHost> comphosts;
-    private List<?> notes;
     private List<RemediationsResult> remediations;
     private List<ScanVulnerability> vulnerabilities;
     private List<ScanVulnerability> compliances;
@@ -80,33 +77,6 @@ public class ScanDetails {
     public void setComphosts( List<ScanHost> comphosts ) {
         this.comphosts = comphosts;
     }
-
-
-    /**
-     * Gets the list of notes.
-     *
-     * @return the list of notes
-     */
-    public List<?> getNotes() {
-        return notes;
-    }
-
-
-    /**
-     * Sets the list of notes.
-     *
-     * @param notes the list of notes
-     */
-    public void setNotes( List<?> notes ) {
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-            this.notes = mapper.readValue( notes.toString(), new TypeReference<NotesRoot>() {} ).getNote();
-        } catch( Exception e ) {
-            this.notes = notes;
-        }
-    }
-
 
     /**
      * Gets remediations.
