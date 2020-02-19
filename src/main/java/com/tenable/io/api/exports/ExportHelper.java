@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.tenable.io.api.ApiHelperBase;
 import com.tenable.io.api.TenableIoClient;
 import com.tenable.io.api.exports.models.AssetsExportRequest;
 import com.tenable.io.api.exports.models.ExportStatus;
@@ -17,10 +18,9 @@ import lombok.extern.slf4j.Slf4j;
  * Copyright (c) 2018 Tenable Network Security, Inc.
  */
 @Slf4j
-public class ExportHelper {
+public class ExportHelper extends ApiHelperBase {
     private static final int sleepInterval = 5000;
     private TenableIoClient client;
-
 
     /**
      * Instantiates a new Export helper.
@@ -29,6 +29,7 @@ public class ExportHelper {
      */
     public ExportHelper( TenableIoClient client ) {
         this.client = client;
+        path = client.getExportsApi().getUriString("/export");
     }
 
 

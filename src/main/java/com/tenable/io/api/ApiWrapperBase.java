@@ -1,13 +1,18 @@
 package com.tenable.io.api;
 
 
+import java.net.MalformedURLException;
+
+import com.tenable.io.core.exceptions.TenableIoException;
 import com.tenable.io.core.services.AsyncHttpService;
 import com.tenable.io.core.utilities.UriBuilderHelper;
 
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Copyright (c) 2017 Tenable Network Security, Inc.
  */
+@Slf4j
 public abstract class ApiWrapperBase {
     /**
      * The Async http service.
@@ -58,5 +63,13 @@ public abstract class ApiWrapperBase {
      */
     protected UriBuilderHelper createBaseUriBuilder( String path ) {
         return new UriBuilderHelper( apiScheme, apiHost, path );
+    }
+
+    public String getUriString(String path) {
+        try {
+            return createBaseUriBuilder(path).build().toURL().toString();
+        } catch (MalformedURLException | TenableIoException e) {
+            throw new RuntimeException("Error building uri string", e);
+        }
     }
 }

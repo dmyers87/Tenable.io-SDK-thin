@@ -9,6 +9,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.tenable.io.api.ApiHelperBase;
 import com.tenable.io.api.TenableIoClient;
 import com.tenable.io.api.scans.models.History;
 import com.tenable.io.api.scans.models.Scan;
@@ -21,7 +22,7 @@ import com.tenable.io.core.exceptions.TenableIoException;
 /**
  * Copyright (c) 2017 Tenable Network Security, Inc.
  */
-public class ScanHelper {
+public class ScanHelper extends ApiHelperBase {
     private static final long MILLISEC_IN_A_DAY = 3600L * 24L * 1000L;
     private static Logger logger = LoggerFactory.getLogger( ScanHelper.class );
 
@@ -50,6 +51,7 @@ public class ScanHelper {
      */
     public ScanHelper( TenableIoClient client ) {
         this.client = client;
+        path = client.getExportsApi().getUriString("/scans");
     }
 
 
