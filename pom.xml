@@ -23,7 +23,7 @@
     <httpasyncclient.version>4.1.4</httpasyncclient.version>
     <jackson.version>2.8.11</jackson.version>
     <junit.version>4.12</junit.version>
-    <lombok.version>1.18.10</lombok.version>
+    <lombok.version>1.18.22</lombok.version>
     <slf4j.version>1.7.29</slf4j.version>
 
     <!-- spotbugs plugins -->
@@ -144,7 +144,7 @@
                 <rules>
                   <requireJavaVersion>
                     <version>[${java.version},${java.unsupported.version})</version>
-                    <message>${project.groupId} requires JDK version &gt;= ${java.version} and &lt; ${java.unsupported.version}</message>
+                    <message>${project.groupId} requires JDK version >= ${java.version} and &lt; ${java.unsupported.version}</message>
                   </requireJavaVersion>
                   <requireMavenVersion>
                     <version>${maven.version}</version>
